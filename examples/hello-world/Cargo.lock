@@ -4,6 +4,14 @@ version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "hello-world"
+version = "0.1.0"
+dependencies = [
+ "stdweb 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "webcomponent 0.0.2",
+]
+
+[[package]]
 name = "itoa"
 version = "0.3.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -12,14 +20,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "num-traits"
 version = "0.1.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-
-[[package]]
-name = "rust-webcomponent"
-version = "0.1.0"
-dependencies = [
- "stdweb 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "webcomponent 0.0.1",
-]
 
 [[package]]
 name = "serde"
@@ -48,7 +48,7 @@ dependencies = [
 
 [[package]]
 name = "webcomponent"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "stdweb 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
