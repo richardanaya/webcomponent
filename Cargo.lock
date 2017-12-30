@@ -40,7 +40,7 @@ dependencies = [
 
 [[package]]
 name = "webcomponent"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "stdweb 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]

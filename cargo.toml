@@ -1,6 +1,6 @@
 [package]
 name = "webcomponent"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Richard <richard.anaya@gmail.com>"]
 include = [
     "src/**/*.rs",

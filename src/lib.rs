@@ -3,7 +3,7 @@
 extern crate stdweb;
 
 // This function allows us to define a new html element hooked up to the static members of a type
-pub fn define<T:WebComponent + 'static>(_:T) {
+pub fn define<T:WebComponent + 'static>(tag_name:&str,_:T) {
 
     // we need to use the array of attribute names we should be observing
     // and pass them in as a joined string since giving arrays to stdweb
@@ -46,7 +46,7 @@ pub fn define<T:WebComponent + 'static>(_:T) {
         }
 
         // tell the dom to associate it with an html tag name
-        customElements.define(@{T::get_element_name()}, GeneratedCustomElement);
+        customElements.define(@{tag_name}, GeneratedCustomElement);
     }
 }
 
@@ -90,7 +90,6 @@ pub fn add_event_listener(event_type:&str,handler:fn()->()){
 }
 
 pub trait WebComponent {
-    fn get_element_name() -> &'static str {""}
     fn get_observable_attributes() -> Vec<&'static str> {vec![]}
     fn constructor(){}
     fn connected(){}

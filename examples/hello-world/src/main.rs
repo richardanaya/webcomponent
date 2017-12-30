@@ -8,9 +8,8 @@ use webcomponent::{
 };
 
 struct HelloWorld;
-impl WebComponent for HelloWorld {
-    fn get_element_name() -> &'static str {"hello-world"}
 
+impl WebComponent for HelloWorld {
     fn constructor(){
         set_inner_html("Hello World!");
     }
@@ -21,7 +20,7 @@ fn main() {
     stdweb::initialize();
 
     // define the web components we will use
-    define(HelloWorld);
+    define("hello-world",HelloWorld);
 
     // keep std event going
     stdweb::event_loop();
