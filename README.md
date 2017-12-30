@@ -21,3 +21,5 @@ define("hello-world",HelloWorld);
 ```html
 <hello-world></hello-world>
 ```
+
+[Demo](https://richardanaya.github.io/webcomponent.rs/examples/hello-world/demo/)
