@@ -1,5 +1,3 @@
-webcomponent.rs
-
 # What is this?
 
 A library for easily creating powerful new html elements in rust.
