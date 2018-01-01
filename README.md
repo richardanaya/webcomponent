@@ -9,7 +9,7 @@ A library for easily creating powerful new html elements in rust.
 struct HelloWorld;
 
 impl WebComponent for HelloWorld {
-    fn created(&mut self, element:stdweb::web::HtmlElement){
+    fn created(&mut self, element:HtmlElement){
         element.set_text_content("Hello World!");
     }
 }
