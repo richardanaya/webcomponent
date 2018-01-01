@@ -23,4 +23,4 @@ define<HelloWorld>("hello-world");
 <hello-world></hello-world>
 ```
 
-[Demo](https://richardanaya.github.io/webcomponent.rs/examples/hello-world/demo/)
+[Demo](https://richardanaya.github.io/webcomponent-rs/examples/hello-world/demo/)
