@@ -3,16 +3,18 @@ extern crate webcomponent;
 
 use webcomponent::{
     WebComponent,
-    define,
-    set_inner_html
+    define
+};
+use stdweb::web::{
+    INode
 };
 
 #[derive(Default)]
 struct HelloWorld;
 
 impl WebComponent for HelloWorld {
-    fn created(&mut self){
-        set_inner_html("Hello World!");
+    fn created(&mut self, element:stdweb::web::HtmlElement){
+        element.set_text_content("Hello World!");
     }
 }
 

@@ -28,17 +28,17 @@ if( typeof Rust === 'undefined' ) {
 
     const __imports = {
         env: {
-            "__extjs_9d3811cddf00cf9254fdecfc95dcb7c72fa6a1a1": function($0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) {
-                $1 = Module.STDWEB.to_js($1);$2 = Module.STDWEB.to_js($2);$3 = Module.STDWEB.to_js($3);$4 = Module.STDWEB.to_js($4);$5 = Module.STDWEB.to_js($5);$6 = Module.STDWEB.to_js($6);$7 = Module.STDWEB.to_js($7);$8 = Module.STDWEB.to_js($8);$9 = Module.STDWEB.to_js($9);$10 = Module.STDWEB.to_js($10);Module.STDWEB.from_js($0, (function(){window.currentElement = null ; class GeneratedCustomElement extends HTMLElement {static get observedAttributes (){return (($1)). split (":");}static get observedProperties (){return (($2)). split (":");}constructor (){super (); this._context = (($3))(Math.random ()); window.currentElement = this ; (($4))(this._context); window.currentElement = null ; for (let i = 0 ; i < GeneratedCustomElement.observedProperties.length ; i ++){let name = GeneratedCustomElement.observedProperties [i]; Object.defineProperty (this , name , {get (){return (($5))(this._context , name);}, set (newValue){(($6))(this._context , name , this [name], newValue);}, enumerable : true , configurable : true});}}connectedCallback (){window.currentElement = this ; (($7))(this._context); window.currentElement = null ;}disconnectedCallback (){window.currentElement = this ; (($8))(this._context); window.currentElement = null ;}attributeChangedCallback (attributeName , oldValue , newValue){window.currentElement = this ; (($9))(this._context , attributeName , oldValue , newValue); window.currentElement = null ;}}customElements.define (($10), GeneratedCustomElement);})());
+            "__extjs_d6bc02be5e189089620d0eab3b03de031c66451b": function($0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10) {
+                $1 = Module.STDWEB.to_js($1);$2 = Module.STDWEB.to_js($2);$3 = Module.STDWEB.to_js($3);$4 = Module.STDWEB.to_js($4);$5 = Module.STDWEB.to_js($5);$6 = Module.STDWEB.to_js($6);$7 = Module.STDWEB.to_js($7);$8 = Module.STDWEB.to_js($8);$9 = Module.STDWEB.to_js($9);$10 = Module.STDWEB.to_js($10);Module.STDWEB.from_js($0, (function(){window.currentElement = null ; class GeneratedCustomElement extends HTMLElement {static get observedAttributes (){return (($1)). split (":");}static get observedProperties (){return (($2)). split (":");}constructor (){super (); this._context = (($3))(Math.random ()); window.currentElement = this ; (($4))(this._context , this); window.currentElement = null ; for (let i = 0 ; i < GeneratedCustomElement.observedProperties.length ; i ++){let name = GeneratedCustomElement.observedProperties [i]; Object.defineProperty (this , name , {get (){return (($5))(this._context , this , name);}, set (newValue){(($6))(this._context , this , name , this [name], newValue);}, enumerable : true , configurable : true});}}connectedCallback (){window.currentElement = this ; (($7))(this._context , this); window.currentElement = null ;}disconnectedCallback (){window.currentElement = this ; (($8))(this._context , this); window.currentElement = null ;}attributeChangedCallback (attributeName , oldValue , newValue){window.currentElement = this ; (($9))(this._context , this , attributeName , oldValue , newValue); window.currentElement = null ;}}customElements.define (($10), GeneratedCustomElement);})());
+            },
+            "__extjs_17387372df61801772537d47ad89f1ac0ca5db88": function($0, $1) {
+                $0 = Module.STDWEB.to_js($0);$1 = Module.STDWEB.to_js($1);($0). textContent = ($1);
             },
             "__extjs_de942ef9ccd064c41dc92d5b5bf83c61aeb00278": function($0) {
                 Module.STDWEB.increment_refcount( $0 );
             },
             "__extjs_d8a439451216bbc6cd9f3012f189d2ad6a2e9459": function($0) {
                 Module.STDWEB.decrement_refcount( $0 );
-            },
-            "__extjs_6c8b611b1490d2820837892879c6acc1d8dd5643": function($0, $1) {
-                $1 = Module.STDWEB.to_js($1);Module.STDWEB.from_js($0, (function(){window.currentElement.innerHTML = ($1);})());
             },
             "__extjs_d0f9580b9cfe82e2ee67d3707e52d87bbabe59f2": function() {
                 Module.STDWEB = {};
@@ -72,6 +72,9 @@ if( typeof Rust === 'undefined' ) {
             },
             "__extjs_ff2c75b4783fd5c9d8c934bbd4a03e66527e05e4": function($0) {
                 Module.STDWEB.tmp = Module.STDWEB.to_js( $0 );
+            },
+            "__extjs_f9291be119e464a4df6a4bcefb18dcb58e662e37": function($0) {
+                return (Module.STDWEB.acquire_js_reference( $0 ) instanceof HTMLElement) | 0;
             },
             "__web_on_grow": function() {
                 const buffer = Module.instance.exports.memory.buffer;

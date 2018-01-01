@@ -1,12 +1,12 @@
 extern crate stdweb;
 extern crate webcomponent;
-use std::collections::HashMap;
 
 use webcomponent::{
     WebComponent,
-    define,
-    set_inner_html,
-    log
+    define
+};
+use stdweb::web::{
+    INode
 };
 
 struct GenericGreeter {
@@ -26,23 +26,23 @@ impl Default for GenericGreeter {
 impl WebComponent for GenericGreeter {
     fn get_observable_attributes() -> Vec<&'static str> {vec!["greeting","name"]}
 
-    fn created(&mut self){
-        self.render();
+    fn created(&mut self, element:stdweb::web::HtmlElement){
+        self.render(element);
     }
 
-    fn attribute_changed(&mut self,attribute_name:String,_old_value:stdweb::Value,new_value:stdweb::Value){
+    fn attribute_changed(&mut self, element:stdweb::web::HtmlElement, attribute_name:String, _old_value:stdweb::Value, new_value:stdweb::Value){
         if attribute_name == "greeting"{
             self.greeting = new_value.into_string().unwrap();
         } else if attribute_name == "name" {
             self.name = new_value.into_string().unwrap();
         }
-        self.render();
+        self.render(element);
     }
 }
 
 impl GenericGreeter {
-    fn render(&mut self){
-        set_inner_html(&format!("{} {}! ",self.greeting,self.name));
+    fn render(&mut self, element:stdweb::web::HtmlElement){
+        element.set_text_content(&format!("{} {}! ",self.greeting,self.name));
     }
 }
 
