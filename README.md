@@ -5,17 +5,18 @@ A library for easily creating powerful new html elements in rust.
 # Hello World
 
 ```rust
+#[derive(Default)]
 struct HelloWorld;
 
 impl WebComponent for HelloWorld {
-    fn constructor(){
+    fn created(&mut self){
         set_inner_html("Hello World!");
     }
 }
 
 ...
 
-define("hello-world",HelloWorld);
+define<HelloWorld>("hello-world");
 ```
 
 ```html

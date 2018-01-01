@@ -7,10 +7,11 @@ use webcomponent::{
     set_inner_html
 };
 
+#[derive(Default)]
 struct HelloWorld;
 
 impl WebComponent for HelloWorld {
-    fn constructor(){
+    fn created(&mut self){
         set_inner_html("Hello World!");
     }
 }
@@ -20,7 +21,7 @@ fn main() {
     stdweb::initialize();
 
     // define the web components we will use
-    define("hello-world",HelloWorld);
+    define::<HelloWorld>("hello-world");
 
     // keep std event going
     stdweb::event_loop();
