@@ -28,11 +28,11 @@ if( typeof Rust === 'undefined' ) {
 
     const __imports = {
         env: {
+            "__extjs_d590a14bd73d1cfd6c1024f19b1a8c7786072bd8": function($0, $1, $2) {
+                $1 = Module.STDWEB.to_js($1);$2 = Module.STDWEB.to_js($2);Module.STDWEB.from_js($0, (function(){($1). innerHTML = ($2);})());
+            },
             "__extjs_f1bb6ef8b85642f03a39a671db2b6e15c7805d43": function($0, $1, $2, $3, $4, $5, $6, $7, $8) {
                 $1 = Module.STDWEB.to_js($1);$2 = Module.STDWEB.to_js($2);$3 = Module.STDWEB.to_js($3);$4 = Module.STDWEB.to_js($4);$5 = Module.STDWEB.to_js($5);$6 = Module.STDWEB.to_js($6);$7 = Module.STDWEB.to_js($7);$8 = Module.STDWEB.to_js($8);Module.STDWEB.from_js($0, (function(){window.currentElement = null ; function guid (){function s4 (){return Math.floor ((1 + Math.random ())* 0x10000). toString (16). substring (1);}return s4 ()+ s4 ()+ '-' + s4 ()+ '-' + s4 ()+ '-' + s4 ()+ '-' + s4 ()+ s4 ()+ s4 ();}class GeneratedCustomElement extends HTMLElement {static get observedAttributes (){return (($1)). split (":");}static get observedProperties (){return (($2)). split (":");}constructor (){super (); this._id = guid (); this._props = {}; window.currentElement = this ; (($3))(this._id , this); window.currentElement = null ; for (let i = 0 ; i < GeneratedCustomElement.observedProperties.length ; i ++){let name = GeneratedCustomElement.observedProperties [i]; Object.defineProperty (this , name , {get (){return this._props [name];}, set (newValue){let oldValue = this._props [name]; this._props [name]= newValue ; (($4))(this._id , this , name , this [name], newValue);}, enumerable : true , configurable : true});}}connectedCallback (){window.currentElement = this ; (($5))(this._id , this); window.currentElement = null ;}disconnectedCallback (){window.currentElement = this ; (($6))(this._id , this); window.currentElement = null ;}attributeChangedCallback (attributeName , oldValue , newValue){window.currentElement = this ; (($7))(this._id , this , attributeName , oldValue , newValue); window.currentElement = null ;}}customElements.define (($8), GeneratedCustomElement);})());
-            },
-            "__extjs_17387372df61801772537d47ad89f1ac0ca5db88": function($0, $1) {
-                $0 = Module.STDWEB.to_js($0);$1 = Module.STDWEB.to_js($1);($0). textContent = ($1);
             },
             "__extjs_de942ef9ccd064c41dc92d5b5bf83c61aeb00278": function($0) {
                 Module.STDWEB.increment_refcount( $0 );

@@ -1,17 +1,13 @@
 extern crate stdweb;
 extern crate webcomponent;
-
-use webcomponent::{
-    WebComponent,
-    define
-};
+use webcomponent::CustomElement;
 use stdweb::web::{
     INode
 };
 
 struct GenericGreeter;
 
-impl WebComponent for GenericGreeter {
+impl CustomElement for GenericGreeter {
     fn get_observable_attributes() -> Vec<&'static str> {vec!["greeting","name"]}
 
     fn created(_:String, element:stdweb::web::HtmlElement){
@@ -36,7 +32,7 @@ fn main() {
     stdweb::initialize();
 
     // define the web components we will use
-    define::<GenericGreeter>("generic-greeter");
+    GenericGreeter::register("generic-greeter");
 
     // keep std event going
     stdweb::event_loop();

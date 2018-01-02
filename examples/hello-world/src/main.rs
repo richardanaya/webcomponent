@@ -1,20 +1,11 @@
 extern crate stdweb;
 extern crate webcomponent;
+use webcomponent::CustomElement;
 
-use webcomponent::{
-    WebComponent,
-    define
-};
-use stdweb::web::{
-    INode
-};
-
-#[derive(Default)]
 struct HelloWorld;
-
-impl WebComponent for HelloWorld {
+impl CustomElement for HelloWorld {
     fn created(_id:String, element:stdweb::web::HtmlElement){
-        element.set_text_content("Hello World!");
+        Self::set_inner_html(&element,"<h1>Hello World!</h1>");
     }
 }
 
@@ -23,7 +14,7 @@ fn main() {
     stdweb::initialize();
 
     // define the web components we will use
-    define::<HelloWorld>("hello-world");
+    HelloWorld::register("hello-world");
 
     // keep std event going
     stdweb::event_loop();
