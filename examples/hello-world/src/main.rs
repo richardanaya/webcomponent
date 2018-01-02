@@ -13,7 +13,7 @@ use stdweb::web::{
 struct HelloWorld;
 
 impl WebComponent for HelloWorld {
-    fn created(&mut self, element:stdweb::web::HtmlElement){
+    fn created(_id:String, element:stdweb::web::HtmlElement){
         element.set_text_content("Hello World!");
     }
 }

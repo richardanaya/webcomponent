@@ -9,40 +9,25 @@ use stdweb::web::{
     INode
 };
 
-struct GenericGreeter {
-    greeting: String,
-    name: String
-}
-
-impl Default for GenericGreeter {
-    fn default() -> GenericGreeter {
-        GenericGreeter {
-            greeting: String::from("Hello"),
-            name: String::from("World"),
-        }
-    }
-}
+struct GenericGreeter;
 
 impl WebComponent for GenericGreeter {
     fn get_observable_attributes() -> Vec<&'static str> {vec!["greeting","name"]}
 
-    fn created(&mut self, element:stdweb::web::HtmlElement){
-        self.render(element);
+    fn created(_:String, element:stdweb::web::HtmlElement){
+        Self::render(element);
     }
 
-    fn attribute_changed(&mut self, element:stdweb::web::HtmlElement, attribute_name:String, _old_value:stdweb::Value, new_value:stdweb::Value){
-        if attribute_name == "greeting"{
-            self.greeting = new_value.into_string().unwrap();
-        } else if attribute_name == "name" {
-            self.name = new_value.into_string().unwrap();
-        }
-        self.render(element);
+    fn attribute_changed(_:String, element:stdweb::web::HtmlElement, _:String, _:stdweb::Value, _:stdweb::Value){
+        Self::render(element);
     }
 }
 
 impl GenericGreeter {
-    fn render(&mut self, element:stdweb::web::HtmlElement){
-        element.set_text_content(&format!("{} {}! ",self.greeting,self.name));
+    fn render(element:stdweb::web::HtmlElement){
+        let greeting = Self::get_attribute(&element,"greeting").unwrap_or(String::from("Hello"));
+        let name = Self::get_attribute(&element,"name").unwrap_or(String::from("World"));
+        element.set_text_content(&format!("{} {}! ",greeting,name));
     }
 }
 
