@@ -8,7 +8,7 @@ name = "hello-world"
 version = "0.1.0"
 dependencies = [
  "stdweb 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "webcomponent 0.0.4",
+ "webcomponent 0.0.5",
 ]
 
 [[package]]
@@ -48,7 +48,7 @@ dependencies = [
 
 [[package]]
 name = "webcomponent"
-version = "0.0.4"
+version = "0.0.5"
 dependencies = [
  "stdweb 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
