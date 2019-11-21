@@ -43,4 +43,4 @@ serve:
 ```
 
 
-[Demo](https://richardanaya.github.io/webcomponent-rs/examples/hello-world/demo/)
+See demo [here](https://richardanaya.github.io/webcomponent-rs/examples/hello-world/demo/)
