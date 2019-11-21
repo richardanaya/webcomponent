@@ -1,14 +1,14 @@
 use webcomponent::*;
 use js_ffi::*;
 
-struct HelloWorld(JSValue);
+struct HelloWorld(JSObject);
 
 impl CustomElement for HelloWorld {
-    fn new(element:JSValue) -> Self {
+    fn new(element:JSObject) -> Self {
         HelloWorld(element)
     }
-    fn created(&mut self){
-        js!((el,x)=>x.innerHTML=x;).invoke_2(self.0,"Hello World!");
+    fn connected(&mut self){
+        js!((el,x)=>el.innerHTML=x).invoke_2(&self.0,"Hello World!");
     }
 }
 
