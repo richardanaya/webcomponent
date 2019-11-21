@@ -7,7 +7,7 @@
 # Hello World
 ```toml
 [dependencies]
-webcomponent="0"
+webcomponent="0.1"
 ```
 ```rust
 #[derive(Default)]

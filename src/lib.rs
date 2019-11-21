@@ -1,7 +1,3 @@
-#![recursion_limit="512"]
-#[macro_use]
-extern crate stdweb;
-
 pub trait CustomElement {
     fn get_observable_attributes() -> Vec<&'static str> {vec![]}
     fn get_observable_properties() -> Vec<&'static str> {vec![]}

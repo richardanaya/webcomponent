@@ -1,15 +1,16 @@
 [package]
 name = "webcomponent"
-version = "0.0.5"
-authors = ["Richard <richard.anaya@gmail.com>"]
+version = "0.1.0"
+authors = ["Richard Anaya"]
 include = [
     "src/**/*.rs",
     "Cargo.toml",
 ]
-license = "MIT"
-homepage = "https://github.com/richardanaya/webcomponent.rs"
-repository = "https://github.com/richardanaya/webcomponent.rs"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/richardanaya/webcomponent"
+repository = "https://github.com/richardanaya/webcomponent"
 description = "A library for creating web components"
+README = "README.md"
 
 [dependencies]
-stdweb = "0.2.2"
+js_ffi = "0.6"
