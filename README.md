@@ -2,7 +2,7 @@
 
 <a href="https://docs.rs/webcomponent"><img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square" alt="docs.rs docs" /></a>
 
-[Web components](https://webcomponents.org/) are W3C compliant standard for writing your own HTML element. `webcomponent` is a Rust library for easily writing your own web components in Rust with [`js_ffi`](https://github.com/richardanaya/js_ffi).
+[Web components](https://www.webcomponents.org/) are W3C compliant standard for writing your own HTML element. `webcomponent` is a Rust library for easily writing your own web components in Rust with [`js_ffi`](https://github.com/richardanaya/js_ffi).
 
 # Hello World
 ```toml
