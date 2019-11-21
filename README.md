@@ -7,11 +7,11 @@
 # Hello World
 ```toml
 [dependencies]
-webcomponent="0.1"
-js_ffi="0.6"
+webcomponent="0.1" # for registering our web component
+js_ffi="0.6" # for interacting with javascript
 ```
 ```rust
-use webcomponent::*;
+use webcomponent::*; 
 use js_ffi::*;
 
 #[derive(Default)]
