@@ -1,11 +1,12 @@
 use js_ffi::*;
 
 pub trait CustomElement {
-    fn register(name:&str){
-      
+    fn new(element:JSValue) -> Self;
+    fn register(_name:&str){
+
     }
-    fn created(&mut self,_element:JSValue){}
-    fn connected(&mut self,_element:JSValue){}
-    fn disconnected(&mut self,_element:JSValue){}
-    fn attribute_changed(&mut self,_element:JSValue,_name:JSValue,_old_value:JSValue,_new_value:JSValue){}
+    fn created(&mut self){}
+    fn connected(&mut self){}
+    fn disconnected(&mut self){}
+    fn attribute_changed(&mut self,_name:JSValue,_old_value:JSValue,_new_value:JSValue){}
 }
