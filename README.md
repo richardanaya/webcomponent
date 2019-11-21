@@ -50,7 +50,7 @@ serve:
 ```
 
 
-See demo [here](https://richardanaya.github.io/webcomponent/examples/hello-world/demo/)
+See demo [here](https://richardanaya.github.io/webcomponent/examples/helloworld/)
 
 # License
 
