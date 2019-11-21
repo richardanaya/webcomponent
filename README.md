@@ -19,6 +19,7 @@ struct HelloWorld;
 
 impl CustomElement for HelloWorld {
     fn created(&mut self, element:JSValue){
+    	// set the inner html on our element
         js!((el,x)=>x.innerHTML=x;).invoke_2(element,"Hello World!");
     }
 }
