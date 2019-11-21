@@ -11,7 +11,6 @@ license = "MIT OR Apache-2.0"
 homepage = "https://github.com/richardanaya/webcomponent"
 repository = "https://github.com/richardanaya/webcomponent"
 description = "A library for creating web components"
-README = "README.md"
 
 [dependencies]
 js_ffi = "0.6"
