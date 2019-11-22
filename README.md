@@ -21,7 +21,7 @@ impl CustomElement for HelloWorld {
         HelloWorld(element)
     }
     fn connected(&mut self){
-        js!((el,x)=>el.innerHTML=x).invoke_2(&self.0,"Hello World!");
+        set_property(&self.0,"innerHTML","goodbye World!");
     }
 }
 
@@ -34,7 +34,7 @@ fn main() {
 <!-- a polyfill for web components on some browsers -->
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
 <!-- for running your js_ffi library -->
-<script src="https://cdn.jsdelivr.net/gh/richardanaya/js_ffi/js_ffi.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/richardanaya/js_ffi@latest/js_ffi.js"></script>
 <!-- get things started -->
 <script>js_ffi.run("helloworld.wasm");</script>
 <!-- now you can put your hello-world element anywhere! -->

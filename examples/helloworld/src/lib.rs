@@ -8,7 +8,7 @@ impl CustomElement for HelloWorld {
         HelloWorld(element)
     }
     fn connected(&mut self){
-        js!((el,x)=>el.innerHTML=x).invoke_2(&self.0,"Hello World!");
+        set_property(&self.0,"innerHTML","goodbye World!");
     }
 }
 
