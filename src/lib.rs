@@ -93,9 +93,16 @@ pub fn set_shadow_html(el: impl ToJSValue, html: &str) {
     shadow_dom.set_shadow_html(el, html);
 }
 
+pub fn set_html(el: impl ToJSValue, html: &str) {
+  let shadow_dom = globals::get::<ShadowDom>();
+  shadow_dom.set_html(el, html);
+}
+
+
 struct ShadowDom {
     fn_attach_shadow: JSInvoker,
     fn_set_shadow_html: JSInvoker,
+    fn_set_html: JSInvoker,
 }
 
 impl Default for ShadowDom {
@@ -103,6 +110,7 @@ impl Default for ShadowDom {
         ShadowDom {
             fn_attach_shadow: js!((el,is_open)=>el.attachShadow({mode:is_open?"open":"closed"})),
             fn_set_shadow_html: js!((el,html)=>el.shadowRoot.innerHTML = html),
+            fn_set_html: js!((el,html)=>el.innerHTML = html),
         }
     }
 }
@@ -115,4 +123,8 @@ impl ShadowDom {
     pub fn set_shadow_html(&self, el: impl ToJSValue, html: &str) {
         self.fn_set_shadow_html.invoke_2(el, html);
     }
+
+    pub fn set_html(&self, el: impl ToJSValue, html: &str) {
+      self.fn_set_html.invoke_2(el, html);
+  }
 }

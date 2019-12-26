@@ -27,7 +27,7 @@ impl CustomElement for HelloWorld {
         HelloWorld(element)
     }
     fn connected(&mut self){
-        set_property(&self.0,"innerHTML","Hello World!");
+        set_html(&self.0,"Hello World!");
     }
 }
 

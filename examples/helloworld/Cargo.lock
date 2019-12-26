@@ -36,7 +36,16 @@ name = "example"
 version = "0.1.0"
 dependencies = [
  "js_ffi 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)",
- "webcomponent 0.4.0",
+ "webcomponent 0.4.2",
+]
+
+[[package]]
+name = "globals"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "lazy_static 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "spin 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -111,8 +120,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "webcomponent"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
+ "globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "js_ffi 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "spin 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -122,6 +132,7 @@ dependencies = [
 "checksum anystring_macro 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "017b7ab0dd69075acb48c5a697748033218fdc40f2f10d3ad2e52600075f2bd0"
 "checksum cstring 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)" = "f59de94c81f8ba8b78c997112fa1efdff7d52829e026ce2671bf6ad9b738a29f"
 "checksum cty 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7313c0d620d0cb4dbd9d019e461a4beb501071ff46ec0ab933efb4daa76d73e3"
+"checksum globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "d4c403f89ae945dabf67e74b6d8b533034035f08f045ce841d93bcf99c0d084b"
 "checksum js_ffi 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)" = "7270c365d33ef107e1b505bb23814a68323b305664ee0c673aadc6164e1f5b7d"
 "checksum lazy_static 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 "checksum memchr 2.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "88579771288728879b57485cc7d6b07d648c9f0141eb955f8ab7f9d45394468e"

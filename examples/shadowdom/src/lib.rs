@@ -10,7 +10,7 @@ impl CustomElement for HelloWorld {
     fn connected(&mut self) {
         attach_shadow(&self.0, true);
         set_shadow_html(&self.0, "<div>Hello <slot name=\"fname\"></slot>!</div>");
-        set_property(&self.0, "innerHTML", "<span slot=\"fname\">Richard</span>");
+        set_html(&self.0, "<span slot=\"fname\">Richard</span>");
     }
 }
 
