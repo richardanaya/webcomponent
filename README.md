@@ -77,6 +77,8 @@ impl CustomElement for HelloPerson {
 }
 ```
 
+See demo [here](https://richardanaya.github.io/webcomponent/examples/shadowdom/)
+
 # License
 
 This project is licensed under either of
