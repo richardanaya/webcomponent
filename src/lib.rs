@@ -30,18 +30,19 @@ pub trait CustomElement {
             let el1 = el.clone();
             let el2 = el.clone();
             let el3 = el.clone();
-            let connect = create_callback_0(move ||{
-              el1.lock().connected();
+            let connect = create_callback_0(move || {
+                el1.lock().connected();
             });
-            let disconnect = create_callback_0(move ||{
-              el2.lock().disconnected();
+            let disconnect = create_callback_0(move || {
+                el2.lock().disconnected();
             });
-            let attribute_change = create_callback_3(move |name,old,new|{
-              el3.lock().attribute_changed(name,old,new);
+            let attribute_change = create_callback_3(move |name, old, new| {
+                el3.lock().attribute_changed(name, old, new);
             });
             js!((e,a,b,c)=>{
               e.addHooks(a,b,c);
-            }).invoke_4(JSNoDrop(element),connect,disconnect,attribute_change);
+            })
+            .invoke_4(JSNoDrop(element), connect, disconnect, attribute_change);
         });
         js!(
           (construct,elementName)=>{
@@ -80,4 +81,38 @@ pub trait CustomElement {
     fn connected(&mut self) {}
     fn disconnected(&mut self) {}
     fn attribute_changed(&mut self, _name: JSValue, _old_value: JSValue, _new_value: JSValue) {}
+}
+
+pub fn attach_shadow(el: impl ToJSValue, open: bool) {
+    let shadow_dom = globals::get::<ShadowDom>();
+    shadow_dom.attach_shadow(el, open);
+}
+
+pub fn set_shadow_html(el: impl ToJSValue, html: &str) {
+    let shadow_dom = globals::get::<ShadowDom>();
+    shadow_dom.set_shadow_html(el, html);
+}
+
+struct ShadowDom {
+    fn_attach_shadow: JSInvoker,
+    fn_set_shadow_html: JSInvoker,
+}
+
+impl Default for ShadowDom {
+    fn default() -> Self {
+        ShadowDom {
+            fn_attach_shadow: js!((el,is_open)=>el.attachShadow({mode:is_open?"open":"closed"})),
+            fn_set_shadow_html: js!((el,html)=>el.shadowRoot.innerHTML = html),
+        }
+    }
+}
+
+impl ShadowDom {
+    pub fn attach_shadow(&self, el: impl ToJSValue, is_open: bool) {
+        self.fn_attach_shadow.invoke_2(el, is_open);
+    }
+
+    pub fn set_shadow_html(&self, el: impl ToJSValue, html: &str) {
+        self.fn_set_shadow_html.invoke_2(el, html);
+    }
 }
