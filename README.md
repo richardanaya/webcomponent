@@ -4,6 +4,9 @@
 
 [Web components](https://www.webcomponents.org/) are W3C standard for writing your own HTML element. `webcomponent` is a Rust library for easily writing your own web components in Rust with [`js_ffi`](https://github.com/richardanaya/js_ffi).
 
+Features:
+- [x] Shadow Dom
+
 # Hello World
 ```toml
 [lib]
