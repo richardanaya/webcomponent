@@ -6,6 +6,9 @@
 
 # Hello World
 ```toml
+[lib]
+crate-type =["cdylib"]
+
 [dependencies]
 webcomponent="0.4" # for registering our web component
 js_ffi="0.6" # for interacting with javascript
