@@ -8,6 +8,7 @@ Features:
 - [x] Shadow DOM
 - [x] Observable attributes
 - [x] helper functions and syntax highlighting macros
+- [x] `#![no_std]` and `alloc`
 
 # Hello World
 ```toml
