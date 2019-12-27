@@ -137,7 +137,7 @@ impl CustomElement for LoudButton {
         LoudButton(element)
     }
     fn connected(&mut self){
-        set_html(&self.element,html!(<button>Shout!</button>));
+        set_html(&self.element,r#"<button>Shout!</button>"#);
 	js!(Node.prototype.addEventListener).call_2(
 	  &self.element,
 	  "click",
