@@ -9,6 +9,7 @@ Features:
 
 # Hello World
 ```toml
+# configures rust project to be a web assembly lib
 [lib]
 crate-type =["cdylib"]
 
