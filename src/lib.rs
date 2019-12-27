@@ -2,8 +2,8 @@ use js_ffi::*;
 extern crate alloc;
 use alloc::sync::Arc;
 use alloc::vec::Vec;
+pub use highlight::{anystring, css, html};
 use spin::Mutex;
-pub use highlight::{html,anystring};
 
 pub struct JSNoDrop(pub JSValue);
 
