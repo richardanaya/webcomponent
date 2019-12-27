@@ -1,6 +1,7 @@
 use js_ffi::*;
 extern crate alloc;
 use alloc::sync::Arc;
+use alloc::vec::Vec;
 use spin::Mutex;
 
 pub struct JSNoDrop(pub JSValue);
@@ -45,11 +46,16 @@ pub trait CustomElement {
             .invoke_4(JSNoDrop(element), connect, disconnect, attribute_change);
         });
         js!(
-          (construct,elementName)=>{
+          (construct,elementName,attrNames)=>{
+            let attrs = attrNames.split(",");
             class GeneratedCustomElement extends HTMLElement {
               constructor() {
                   super();
                   construct(this);
+              }
+
+              static get observedAttributes() {
+                return attrs;
               }
 
               connectedCallback() {
@@ -75,8 +81,13 @@ pub trait CustomElement {
             customElements.define(elementName, GeneratedCustomElement);
           }
         )
-        .invoke_2(construct, name);
+        .invoke_3(construct, name, &Self::observed_attributes().join(","));
     }
+
+    fn observed_attributes() -> Vec<&'static str> {
+        vec![]
+    }
+
     fn created(&mut self) {}
     fn connected(&mut self) {}
     fn disconnected(&mut self) {}
@@ -94,15 +105,20 @@ pub fn set_shadow_html(el: impl ToJSValue, html: &str) {
 }
 
 pub fn set_html(el: impl ToJSValue, html: &str) {
-  let shadow_dom = globals::get::<ShadowDom>();
-  shadow_dom.set_html(el, html);
+    let shadow_dom = globals::get::<ShadowDom>();
+    shadow_dom.set_html(el, html);
 }
 
+pub fn get_attribute(el: impl ToJSValue, name: &str) -> Option<String> {
+    let shadow_dom = globals::get::<ShadowDom>();
+    shadow_dom.get_attribute(el, name)
+}
 
 struct ShadowDom {
     fn_attach_shadow: JSInvoker,
     fn_set_shadow_html: JSInvoker,
     fn_set_html: JSInvoker,
+    fn_get_attribute: JSInvoker,
 }
 
 impl Default for ShadowDom {
@@ -111,6 +127,7 @@ impl Default for ShadowDom {
             fn_attach_shadow: js!((el,is_open)=>el.attachShadow({mode:is_open?"open":"closed"})),
             fn_set_shadow_html: js!((el,html)=>el.shadowRoot.innerHTML = html),
             fn_set_html: js!((el,html)=>el.innerHTML = html),
+            fn_get_attribute: js!((el,name)=>el.getAttribute(name)),
         }
     }
 }
@@ -125,6 +142,15 @@ impl ShadowDom {
     }
 
     pub fn set_html(&self, el: impl ToJSValue, html: &str) {
-      self.fn_set_html.invoke_2(el, html);
-  }
+        self.fn_set_html.invoke_2(el, html);
+    }
+
+    pub fn get_attribute(&self, el: impl ToJSValue, name: &str) -> Option<String> {
+        let result = self.fn_get_attribute.invoke_2(el, name);
+        if result.is_null() {
+            None
+        } else {
+            Some(result.as_string())
+        }
+    }
 }
