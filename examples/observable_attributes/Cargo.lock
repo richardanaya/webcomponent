@@ -36,7 +36,7 @@ name = "example"
 version = "0.1.0"
 dependencies = [
  "js_ffi 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)",
- "webcomponent 0.4.3",
+ "webcomponent 0.5.0",
 ]
 
 [[package]]
@@ -128,7 +128,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "webcomponent"
-version = "0.4.3"
+version = "0.5.0"
 dependencies = [
  "globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "highlight 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)",

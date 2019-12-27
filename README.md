@@ -17,19 +17,17 @@ Features:
 crate-type =["cdylib"]
 
 [dependencies]
-webcomponent="0.4" # for registering our web component
-js_ffi="0.6" # for interacting with javascript
+webcomponent="0.5" # for registering our web component
 ```
 ```rust
 use webcomponent::*;
-use js_ffi::*;
 
 struct HelloWorld {
-	element: JSObject
+	element: HTMLElement
 }
 
 impl CustomElement for HelloWorld {
-    fn new(element:JSObject) -> Self {
+    fn new(element:HTMLElement) -> Self {
         HelloWorld(element)
     }
     fn connected(&mut self){
@@ -70,11 +68,11 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/helloworld/
 
 ```rust
 struct HelloPerson {
-	element: JSObject
+	element: HTMLElement
 }
 
 impl CustomElement for HelloPerson {
-    fn new(element: JSObject) -> Self {
+    fn new(element: HTMLElement) -> Self {
         HelloPerson(element)
     }
     fn connected(&mut self) {
@@ -91,11 +89,11 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/shadowdom/)
 
 ```rust
 struct HelloPerson {
-	element: JSObject
+	element: HTMLElement
 }
 
 impl CustomElement for HelloPerson {
-    fn new(element: JSObject) -> Self {
+    fn new(element: HTMLElement) -> Self {
         HelloPerson(element)
     }
 
@@ -107,7 +105,7 @@ impl CustomElement for HelloPerson {
         self.render();
     }
 
-    fn attribute_changed(&mut self, _name: JSValue, _old_value: JSValue, _new_value: JSValue) {
+    fn attribute_changed(&mut self, _name: String, _old_value: Option<String>, _new_value: Option<String>) {
         self.render();
     }
 }

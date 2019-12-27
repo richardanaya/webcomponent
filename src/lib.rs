@@ -2,13 +2,15 @@
 use js_ffi::*;
 #[macro_use]
 extern crate alloc;
+use alloc::string::String;
 use alloc::sync::Arc;
 use alloc::vec::Vec;
 pub use highlight::{anystring, css, html};
 use spin::Mutex;
-use alloc::string::String;
 
 pub struct JSNoDrop(pub JSValue);
+
+pub type HTMLElement = js_ffi::JSObject;
 
 impl ToJSValue for JSNoDrop {
     #[inline]
@@ -41,7 +43,18 @@ pub trait CustomElement {
             let disconnect = create_callback_0(move || {
                 el2.lock().disconnected();
             });
-            let attribute_change = create_callback_3(move |name, old, new| {
+            let attribute_change = create_callback_3(move |name_obj, old_obj, new_obj| {
+                let name = name_obj.as_string();
+                let old = if old_obj.is_null() {
+                    None
+                } else {
+                    Some(old_obj.as_string())
+                };
+                let new = if new_obj.is_null() {
+                    None
+                } else {
+                    Some(new_obj.as_string())
+                };
                 el3.lock().attribute_changed(name, old, new);
             });
             js!((e,a,b,c)=>{
@@ -95,7 +108,13 @@ pub trait CustomElement {
     fn created(&mut self) {}
     fn connected(&mut self) {}
     fn disconnected(&mut self) {}
-    fn attribute_changed(&mut self, _name: JSValue, _old_value: JSValue, _new_value: JSValue) {}
+    fn attribute_changed(
+        &mut self,
+        _name: String,
+        _old_value: Option<String>,
+        _new_value: Option<String>,
+    ) {
+    }
 }
 
 pub fn attach_shadow(el: impl ToJSValue, open: bool) {

@@ -1,10 +1,9 @@
-use js_ffi::*;
 use webcomponent::*;
 
-struct HelloPerson(JSObject);
+struct HelloPerson(HTMLElement);
 
 impl CustomElement for HelloPerson {
-    fn new(element: JSObject) -> Self {
+    fn new(element: HTMLElement) -> Self {
         HelloPerson(element)
     }
 
@@ -16,13 +15,18 @@ impl CustomElement for HelloPerson {
         self.render();
     }
 
-    fn attribute_changed(&mut self, _name: JSValue, _old_value: JSValue, _new_value: JSValue) {
+    fn attribute_changed(
+        &mut self,
+        _name: String,
+        _old_value: Option<String>,
+        _new_value: Option<String>,
+    ) {
         self.render();
     }
 }
 
 impl HelloPerson {
-    fn render(&mut self){
+    fn render(&mut self) {
         let first_name = get_attribute(&self.0, "first_name").unwrap_or("human".to_string());
         let msg = "Hello ".to_string() + &first_name;
         set_html(&self.0, &msg);

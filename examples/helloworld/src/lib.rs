@@ -1,10 +1,9 @@
-use js_ffi::*;
 use webcomponent::*;
 
-struct HelloWorld(JSObject);
+struct HelloWorld(HTMLElement);
 
 impl CustomElement for HelloWorld {
-    fn new(element: JSObject) -> Self {
+    fn new(element: HTMLElement) -> Self {
         HelloWorld(element)
     }
     fn connected(&mut self) {
