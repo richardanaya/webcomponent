@@ -1,8 +1,9 @@
 [package]
 name = "webcomponent"
-version = "0.4.5"
+version = "0.4.6"
 edition = "2018"
 authors = ["Richard Anaya"]
+categories = ["wasm", "no-std", "web"]
 include = [
     "src/**/*.rs",
     "Cargo.toml",

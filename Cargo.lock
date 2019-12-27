@@ -120,7 +120,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "webcomponent"
-version = "0.4.5"
+version = "0.4.6"
 dependencies = [
  "globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "highlight 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
