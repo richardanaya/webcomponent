@@ -24,6 +24,11 @@ impl ToJSValue for JSNoDrop {
     }
 }
 
+#[derive(Copy, Clone)]
+struct Destructable {
+    function: Option<JSFunction>,
+}
+
 pub trait CustomElement {
     fn new(element: JSObject) -> Self
     where
@@ -37,12 +42,14 @@ pub trait CustomElement {
             let el1 = el.clone();
             let el2 = el.clone();
             let el3 = el.clone();
+
+            let destruct_connect = Arc::new(Mutex::new(Destructable { function: None }));
             let connect = create_callback_0(move || {
                 el1.lock().connected();
             });
-            let disconnect = create_callback_0(move || {
-                el2.lock().disconnected();
-            });
+            destruct_connect.lock().function = Some(connect);
+
+            let destruct_attribute_change = Arc::new(Mutex::new(Destructable { function: None }));
             let attribute_change = create_callback_3(move |name_obj, old_obj, new_obj| {
                 let name = name_obj.as_string();
                 let old = if old_obj.is_null() {
@@ -57,6 +64,18 @@ pub trait CustomElement {
                 };
                 el3.lock().attribute_changed(name, old, new);
             });
+            destruct_attribute_change.lock().function = Some(connect);
+
+            let destruct_disconnect = Arc::new(Mutex::new(Destructable { function: None }));
+            let destruct_disconnect2 = destruct_disconnect.clone();
+            let disconnect = create_callback_0(move || {
+                el2.lock().disconnected();
+                remove_callback(destruct_connect.lock().function.unwrap());
+                remove_callback(destruct_disconnect.lock().function.unwrap());
+                remove_callback(destruct_attribute_change.lock().function.unwrap());
+            });
+            destruct_disconnect2.lock().function = Some(disconnect);
+
             js!((e,a,b,c)=>{
               e.addHooks(a,b,c);
             })

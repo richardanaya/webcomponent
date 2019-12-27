@@ -35,7 +35,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "example"
 version = "0.1.0"
 dependencies = [
- "js_ffi 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "js_ffi 0.6.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "webcomponent 0.5.0",
 ]
 
@@ -58,7 +58,7 @@ dependencies = [
 
 [[package]]
 name = "js_ffi"
-version = "0.6.7"
+version = "0.6.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "anystring 0.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -132,7 +132,7 @@ version = "0.5.0"
 dependencies = [
  "globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "highlight 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
- "js_ffi 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "js_ffi 0.6.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "spin 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -143,7 +143,7 @@ dependencies = [
 "checksum cty 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7313c0d620d0cb4dbd9d019e461a4beb501071ff46ec0ab933efb4daa76d73e3"
 "checksum globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "d4c403f89ae945dabf67e74b6d8b533034035f08f045ce841d93bcf99c0d084b"
 "checksum highlight 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "a9b10592252fa144776e66dfba5e20c129b5220a327b1ca633cbd0538b481bf2"
-"checksum js_ffi 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)" = "a62210ec5996d93789c5f37539374b4166bd7b09307e3391cc4cdbf69098cc86"
+"checksum js_ffi 0.6.8 (registry+https://github.com/rust-lang/crates.io-index)" = "45e84b977eb8aa2e3d6a3e6ddde05e54721a3cb251b3bfb7ed87439e7a584340"
 "checksum lazy_static 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 "checksum memchr 2.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "88579771288728879b57485cc7d6b07d648c9f0141eb955f8ab7f9d45394468e"
 "checksum proc-macro-hack 0.5.11 (registry+https://github.com/rust-lang/crates.io-index)" = "ecd45702f76d6d3c75a80564378ae228a85f0b59d2f3ed43c91b4a69eb2ebfc5"
