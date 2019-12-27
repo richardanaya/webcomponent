@@ -79,6 +79,40 @@ impl CustomElement for HelloPerson {
 
 See demo [here](https://richardanaya.github.io/webcomponent/examples/shadowdom/)
 
+# Observable Attributes
+
+```rust
+struct HelloPerson(JSObject);
+
+impl CustomElement for HelloPerson {
+    fn new(element: JSObject) -> Self {
+        HelloPerson(element)
+    }
+
+    fn observed_attributes() -> Vec<&'static str> {
+        vec!["first_name"]
+    }
+
+    fn connected(&mut self) {
+        self.render();
+    }
+
+    fn attribute_changed(&mut self, _name: JSValue, _old_value: JSValue, _new_value: JSValue) {
+        self.render();
+    }
+}
+
+impl HelloPerson {
+    fn render(&mut self){
+        let first_name = get_attribute(&self.0, "first_name").unwrap_or("human".to_string());
+        let msg = "Hello ".to_string() + &first_name;
+        set_html(&self.0, &msg);
+    }
+}
+```
+
+See demo [here](https://richardanaya.github.io/webcomponent/examples/observable_attributes/)
+
 # License
 
 This project is licensed under either of
