@@ -22,7 +22,7 @@ webcomponent="0.5" # for registering our web component
 use webcomponent::*;
 
 struct HelloWorld {
-	element: HTMLElement
+    element: HTMLElement
 }
 
 impl CustomElement for HelloWorld {
@@ -67,7 +67,7 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/helloworld/
 
 ```rust
 struct HelloPerson {
-	element: HTMLElement
+    element: HTMLElement
 }
 
 impl CustomElement for HelloPerson {
@@ -88,7 +88,7 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/shadowdom/)
 
 ```rust
 struct HelloPerson {
-	element: HTMLElement
+    element: HTMLElement
 }
 
 impl CustomElement for HelloPerson {
