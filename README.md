@@ -12,9 +12,8 @@ Features:
 
 # Hello World
 ```toml
-# configures rust project to be a web assembly lib
 [lib]
-crate-type =["cdylib"]
+crate-type =["cdylib"] # configures rust project to build a web assembly module
 
 [dependencies]
 webcomponent="0.5" # for registering our web component
