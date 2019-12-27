@@ -23,14 +23,16 @@ js_ffi="0.6" # for interacting with javascript
 use webcomponent::*;
 use js_ffi::*;
 
-struct HelloWorld(JSObject);
+struct HelloWorld {
+	element: JSObject
+}
 
 impl CustomElement for HelloWorld {
     fn new(element:JSObject) -> Self {
         HelloWorld(element)
     }
     fn connected(&mut self){
-        set_html(&self.0,"Hello World!");
+        set_html(&self.element,"Hello World!");
     }
 }
 
@@ -66,16 +68,18 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/helloworld/
 # Shadow DOM
 
 ```rust
-struct HelloPerson(JSObject);
+struct HelloPerson {
+	element: JSObject
+}
 
 impl CustomElement for HelloPerson {
     fn new(element: JSObject) -> Self {
         HelloPerson(element)
     }
     fn connected(&mut self) {
-        attach_shadow(&self.0, true);
-        set_shadow_html(&self.0, html!(<div>Hello <slot name="fname"></slot>!</div>));
-        set_html(&self.0, html!(<span slot="fname">Richard</span>));
+        attach_shadow(&self.element, true);
+        set_shadow_html(&self.element, html!(<div>Hello <slot name="fname"></slot>!</div>));
+        set_html(&self.element, html!(<span slot="fname">Richard</span>));
     }
 }
 ```
@@ -85,7 +89,9 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/shadowdom/)
 # Observable Attributes
 
 ```rust
-struct HelloPerson(JSObject);
+struct HelloPerson {
+	element: JSObject
+}
 
 impl CustomElement for HelloPerson {
     fn new(element: JSObject) -> Self {
@@ -107,9 +113,9 @@ impl CustomElement for HelloPerson {
 
 impl HelloPerson {
     fn render(&mut self){
-        let first_name = get_attribute(&self.0, "first_name").unwrap_or("human".to_string());
+        let first_name = get_attribute(&self.element, "first_name").unwrap_or("human".to_string());
         let msg = "Hello ".to_string() + &first_name;
-        set_html(&self.0, &msg);
+        set_html(&self.element, &msg);
     }
 }
 ```
