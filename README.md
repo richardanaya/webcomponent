@@ -7,14 +7,13 @@
 Features:
 - [x] Shadow DOM
 - [x] Observable attributes
-- [x] helper functions and syntax highlighting macros
+- [x] Helper functions and syntax highlighting macros
 - [x] `#![no_std]` and `alloc`
 
 # Hello World
 ```toml
-# configures rust project to be a web assembly lib
 [lib]
-crate-type =["cdylib"]
+crate-type =["cdylib"] # configures rust project to build a web assembly module
 
 [dependencies]
 webcomponent="0.5" # for registering our web component
@@ -23,7 +22,7 @@ webcomponent="0.5" # for registering our web component
 use webcomponent::*;
 
 struct HelloWorld {
-	element: HTMLElement
+    element: HTMLElement
 }
 
 impl CustomElement for HelloWorld {
@@ -68,7 +67,7 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/helloworld/
 
 ```rust
 struct HelloPerson {
-	element: HTMLElement
+    element: HTMLElement
 }
 
 impl CustomElement for HelloPerson {
@@ -89,7 +88,7 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/shadowdom/)
 
 ```rust
 struct HelloPerson {
-	element: HTMLElement
+    element: HTMLElement
 }
 
 impl CustomElement for HelloPerson {
