@@ -5,7 +5,6 @@ extern crate alloc;
 use alloc::string::String;
 use alloc::sync::Arc;
 use alloc::vec::Vec;
-pub use highlight::{anystring, css, html};
 use spin::Mutex;
 
 pub struct JSNoDrop(pub JSValue);
@@ -168,7 +167,10 @@ impl Default for ShadowDom {
         ShadowDom {
             fn_attach_shadow: js!((el,is_open)=>el.attachShadow({mode:is_open?"open":"closed"})),
             fn_set_shadow_html: js!((el,html)=>el.shadowRoot.innerHTML = html),
-            fn_set_html: js!((el,html)=>el.innerHTML = html),
+            fn_set_html: js!((el,html)=>{
+                debugger;
+                el.innerHTML = html
+            }),
             fn_get_attribute: js!((el,name)=>el.getAttribute(name)),
         }
     }

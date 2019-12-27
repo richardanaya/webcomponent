@@ -7,7 +7,7 @@
 Features:
 - [x] Shadow DOM
 - [x] Observable attributes
-- [x] Helper functions and syntax highlighting macros
+- [x] Helper functions
 - [x] `#![no_std]` and `alloc`
 
 # Hello World
@@ -76,8 +76,8 @@ impl CustomElement for HelloPerson {
     }
     fn connected(&mut self) {
         attach_shadow(&self.element, true);
-        set_shadow_html(&self.element, html!(<div>Hello <slot name="fname"></slot>!</div>));
-        set_html(&self.element, html!(<span slot="fname">Richard</span>));
+        set_shadow_html(&self.element, r#"<div>Hello <slot name="fname"></slot>!</div>"#);
+        set_html(&self.element, r#"<span slot="fname">Richard</span>"#);
     }
 }
 ```
