@@ -120,6 +120,35 @@ impl HelloPerson {
 
 See demo [here](https://richardanaya.github.io/webcomponent/examples/observable_attributes/)
 
+# What about the rest of Javsacript?
+
+With `webcomponent` you have a handle to an html element, this is simply a reference to your component that exists in the DOM.  With it we can use [`js_ffi`](https://github.com/richardanaya/js_ffi) ( or any `js_ffi` based library ) to do whatever we want to do.
+
+```rust
+use webcomponent::*;
+use js_ffi::*;
+
+struct LoudButton {
+    element: HTMLElement
+}
+
+impl CustomElement for LoudButton {
+    fn new(element:HTMLElement) -> Self {
+        LoudButton(element)
+    }
+    fn connected(&mut self){
+        set_html(&self.element,html!(<button>Shout!</button>));
+	js!(Node.prototype.addEventListener).call_2(
+	  &self.element,
+	  "click",
+	  create_callback_0(|| {
+	    js!(window.alert).invoke_1("I was clicked!");
+	  }),
+    	);
+    }
+}
+```
+
 # License
 
 This project is licensed under either of
