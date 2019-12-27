@@ -3,6 +3,7 @@ extern crate alloc;
 use alloc::sync::Arc;
 use alloc::vec::Vec;
 use spin::Mutex;
+pub use highlight::{html,anystring};
 
 pub struct JSNoDrop(pub JSValue);
 

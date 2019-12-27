@@ -41,8 +41,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "highlight"
+version = "0.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "anystring 0.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "js_ffi"
-version = "0.6.5"
+version = "0.6.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "anystring 0.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -71,7 +79,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "proc-macro2 1.0.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "quote 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "syn 1.0.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "syn 1.0.11 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -97,7 +105,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "syn"
-version = "1.0.8"
+version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "proc-macro2 1.0.6 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -115,7 +123,8 @@ name = "webcomponent"
 version = "0.4.3"
 dependencies = [
  "globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "js_ffi 0.6.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "highlight 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "js_ffi 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "spin 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -125,12 +134,13 @@ dependencies = [
 "checksum cstring 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)" = "f59de94c81f8ba8b78c997112fa1efdff7d52829e026ce2671bf6ad9b738a29f"
 "checksum cty 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7313c0d620d0cb4dbd9d019e461a4beb501071ff46ec0ab933efb4daa76d73e3"
 "checksum globals 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "d4c403f89ae945dabf67e74b6d8b533034035f08f045ce841d93bcf99c0d084b"
-"checksum js_ffi 0.6.5 (registry+https://github.com/rust-lang/crates.io-index)" = "bb67241f757d0643d8384d68571ddb5bec890dd64ee52d2779eb03800a0862a5"
+"checksum highlight 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "a9b10592252fa144776e66dfba5e20c129b5220a327b1ca633cbd0538b481bf2"
+"checksum js_ffi 0.6.7 (registry+https://github.com/rust-lang/crates.io-index)" = "a62210ec5996d93789c5f37539374b4166bd7b09307e3391cc4cdbf69098cc86"
 "checksum lazy_static 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 "checksum memchr 2.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "88579771288728879b57485cc7d6b07d648c9f0141eb955f8ab7f9d45394468e"
 "checksum proc-macro-hack 0.5.11 (registry+https://github.com/rust-lang/crates.io-index)" = "ecd45702f76d6d3c75a80564378ae228a85f0b59d2f3ed43c91b4a69eb2ebfc5"
 "checksum proc-macro2 1.0.6 (registry+https://github.com/rust-lang/crates.io-index)" = "9c9e470a8dc4aeae2dee2f335e8f533e2d4b347e1434e5671afc49b054592f27"
 "checksum quote 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)" = "053a8c8bcc71fcce321828dc897a98ab9760bef03a4fc36693c231e5b3216cfe"
 "checksum spin 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6e63cff320ae2c57904679ba7cb63280a3dc4613885beafb148ee7bf9aa9042d"
-"checksum syn 1.0.8 (registry+https://github.com/rust-lang/crates.io-index)" = "661641ea2aa15845cddeb97dad000d22070bb5c1fb456b96c1cba883ec691e92"
+"checksum syn 1.0.11 (registry+https://github.com/rust-lang/crates.io-index)" = "dff0acdb207ae2fe6d5976617f887eb1e35a2ba52c13c7234c790960cdad9238"
 "checksum unicode-xid 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "826e7639553986605ec5979c7dd957c7895e93eabed50ab2ffa7f6128a75097c"
