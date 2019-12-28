@@ -122,7 +122,7 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/observable_
 
 # What about the rest of Javsacript?
 
-With `webcomponent` you have a handle to an html element, this is simply a reference to your component that exists in the DOM.  With it we can use [`js_ffi`](https://github.com/richardanaya/js_ffi) ( or any `js_ffi` based library ) to do whatever we want to do.
+With `webcomponent` you have a handle to an html element, this is simply a reference to your component that exists in the DOM.  With it we can use [`js_ffi`](https://github.com/richardanaya/js_ffi) ( or any [`js_ffi` based library](https://github.com/richardanaya/js_ffi#standard-web-libraries) ) to do whatever we want to do.
 
 ```rust
 use webcomponent::*;
