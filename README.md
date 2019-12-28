@@ -66,17 +66,17 @@ See demo [here](https://richardanaya.github.io/webcomponent/examples/helloworld/
 # Shadow DOM
 
 ```rust
-struct HelloPerson {
-    element: HTMLElement
+struct HelloWorld {
+    element:HTMLElement
 }
 
-impl CustomElement for HelloPerson {
+impl CustomElement for HelloWorld {
     fn new(element: HTMLElement) -> Self {
-        HelloPerson(element)
+        HelloWorld(element)
     }
     fn connected(&mut self) {
-        attach_shadow(&self.element, true);
-        set_shadow_html(&self.element, r#"<div>Hello <slot name="fname"></slot>!</div>"#);
+        let shadow_dom = attach_shadow(&self.element, true);
+        set_html(&shadow_dom, r#"<div>Hello <slot name="fname"></slot>!</div>"#);
         set_html(&self.element, r#"<span slot="fname">Richard</span>"#);
     }
 }

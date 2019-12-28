@@ -1,15 +1,14 @@
-use js_ffi::*;
 use webcomponent::*;
 
-struct HelloWorld(JSObject);
+struct HelloWorld(HTMLElement);
 
 impl CustomElement for HelloWorld {
-    fn new(element: JSObject) -> Self {
+    fn new(element: HTMLElement) -> Self {
         HelloWorld(element)
     }
     fn connected(&mut self) {
-        attach_shadow(&self.0, true);
-        set_shadow_html(&self.0, r#"<div>Hello <slot name="fname"></slot>!</div>"#);
+        let shadow_dom = attach_shadow(&self.0, true);
+        set_html(&shadow_dom, r#"<div>Hello <slot name="fname"></slot>!</div>"#);
         set_html(&self.0, r#"<span slot="fname">Richard</span>"#);
     }
 }
