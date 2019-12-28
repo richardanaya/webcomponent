@@ -2,7 +2,7 @@
 
 <a href="https://docs.rs/webcomponent"><img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square" alt="docs.rs docs" /></a>
 
-[Web components](https://www.webcomponents.org/) are W3C standard for writing your own HTML element. `webcomponent` is a Rust library for easily writing your own web components in Rust with [`js_ffi`](https://github.com/richardanaya/js_ffi).
+[Web components](https://www.webcomponents.org/) are a W3C standard for writing your own HTML element. `webcomponent` is a Rust library for easily writing your own web components in Rust with [`js_ffi`](https://github.com/richardanaya/js_ffi).
 
 Features:
 - [x] Shadow DOM
@@ -120,9 +120,9 @@ impl HelloPerson {
 
 See demo [here](https://richardanaya.github.io/webcomponent/examples/observable_attributes/)
 
-# What about the rest of Javsacript?
+# What about the rest of Javscript?
 
-With `webcomponent` you have a handle to an html element, this is simply a reference to your component that exists in the DOM.  With it we can use [`js_ffi`](https://github.com/richardanaya/js_ffi) ( or any `js_ffi` based library ) to do whatever we want to do.
+With `webcomponent` you have a handle to an html element, this is simply a reference to your component that exists in the DOM.  With it we can use [`js_ffi`](https://github.com/richardanaya/js_ffi) ( or any [`js_ffi` based library](https://github.com/richardanaya/js_ffi#standard-web-libraries) ) to do whatever we want to do.
 
 ```rust
 use webcomponent::*;
