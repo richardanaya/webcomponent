@@ -120,7 +120,7 @@ impl HelloPerson {
 
 See demo [here](https://richardanaya.github.io/webcomponent/examples/observable_attributes/)
 
-# What about the rest of Javsacript?
+# What about the rest of Javscript?
 
 With `webcomponent` you have a handle to an html element, this is simply a reference to your component that exists in the DOM.  With it we can use [`js_ffi`](https://github.com/richardanaya/js_ffi) ( or any [`js_ffi` based library](https://github.com/richardanaya/js_ffi#standard-web-libraries) ) to do whatever we want to do.
 
